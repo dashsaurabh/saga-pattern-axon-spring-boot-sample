@@ -1,0 +1,7 @@
+com/progressivecoder/ecommerce/events/BaseEvent.class
+com/progressivecoder/ecommerce/commands/CreateShippingCommand.class
+com/progressivecoder/ecommerce/commands/CreateInvoiceCommand.class
+com/progressivecoder/ecommerce/commands/BaseCommand.class
+com/progressivecoder/ecommerce/commands/CreateOrderCommand.class
+com/progressivecoder/ecommerce/events/OrderCreatedEvent.class
+com/progressivecoder/ecommerce/events/InvoiceCreatedEvent.class
