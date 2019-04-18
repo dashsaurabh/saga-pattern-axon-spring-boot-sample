@@ -1,7 +1,5 @@
-/home/saurabh_dashora/IdeaProjects/saga-axon-server-spring-boot/core-apis/src/main/java/com/progressivecoder/ecommerce/events/OrderCreatedEvent.java
-/home/saurabh_dashora/IdeaProjects/saga-axon-server-spring-boot/core-apis/src/main/java/com/progressivecoder/ecommerce/events/InvoiceCreatedEvent.java
-/home/saurabh_dashora/IdeaProjects/saga-axon-server-spring-boot/core-apis/src/main/java/com/progressivecoder/ecommerce/commands/BaseCommand.java
-/home/saurabh_dashora/IdeaProjects/saga-axon-server-spring-boot/core-apis/src/main/java/com/progressivecoder/ecommerce/commands/CreateOrderCommand.java
-/home/saurabh_dashora/IdeaProjects/saga-axon-server-spring-boot/core-apis/src/main/java/com/progressivecoder/ecommerce/commands/CreateInvoiceCommand.java
-/home/saurabh_dashora/IdeaProjects/saga-axon-server-spring-boot/core-apis/src/main/java/com/progressivecoder/ecommerce/events/BaseEvent.java
-/home/saurabh_dashora/IdeaProjects/saga-axon-server-spring-boot/core-apis/src/main/java/com/progressivecoder/ecommerce/commands/CreateShippingCommand.java
+/home/saurabhdashora/IdeaProjects/saga-pattern-axon-spring-boot-sample/core-apis/src/main/java/com/progressivecoder/ecommerce/commands/CreateInvoiceCommand.java
+/home/saurabhdashora/IdeaProjects/saga-pattern-axon-spring-boot-sample/core-apis/src/main/java/com/progressivecoder/ecommerce/events/InvoiceCreatedEvent.java
+/home/saurabhdashora/IdeaProjects/saga-pattern-axon-spring-boot-sample/core-apis/src/main/java/com/progressivecoder/ecommerce/commands/CreateOrderCommand.java
+/home/saurabhdashora/IdeaProjects/saga-pattern-axon-spring-boot-sample/core-apis/src/main/java/com/progressivecoder/ecommerce/events/OrderCreatedEvent.java
+/home/saurabhdashora/IdeaProjects/saga-pattern-axon-spring-boot-sample/core-apis/src/main/java/com/progressivecoder/ecommerce/commands/CreateShippingCommand.java

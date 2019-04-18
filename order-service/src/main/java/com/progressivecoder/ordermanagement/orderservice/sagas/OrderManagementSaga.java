@@ -2,8 +2,9 @@ package com.progressivecoder.ordermanagement.orderservice.sagas;
 
 import com.progressivecoder.ecommerce.commands.CreateInvoiceCommand;
 import com.progressivecoder.ecommerce.commands.CreateShippingCommand;
-import com.progressivecoder.ecommerce.events.InvoiceCreatedEvent;
-import com.progressivecoder.ecommerce.events.OrderCreatedEvent;
+import com.progressivecoder.ecommerce.commands.UpdateOrderStatusCommand;
+import com.progressivecoder.ecommerce.events.*;
+import com.progressivecoder.ordermanagement.orderservice.aggregates.OrderStatus;
 import org.axonframework.commandhandling.gateway.CommandGateway;
 import org.axonframework.modelling.saga.SagaEventHandler;
 import org.axonframework.modelling.saga.SagaLifecycle;
@@ -20,7 +21,7 @@ public class OrderManagementSaga {
     private transient CommandGateway commandGateway;
 
     @StartSaga
-    @SagaEventHandler(associationProperty = "id")
+    @SagaEventHandler(associationProperty = "orderId")
     public void handle(OrderCreatedEvent orderCreatedEvent){
         String paymentId = UUID.randomUUID().toString();
         System.out.println("Saga invoked");
@@ -28,10 +29,10 @@ public class OrderManagementSaga {
         //associate Saga
         SagaLifecycle.associateWith("paymentId", paymentId);
 
-        System.out.println("order id" + orderCreatedEvent.id);
+        System.out.println("order id" + orderCreatedEvent.orderId);
 
         //send the commands
-        commandGateway.send(new CreateInvoiceCommand(paymentId, orderCreatedEvent.id));
+        commandGateway.send(new CreateInvoiceCommand(paymentId, orderCreatedEvent.orderId));
     }
 
     @SagaEventHandler(associationProperty = "paymentId")
@@ -44,6 +45,16 @@ public class OrderManagementSaga {
         SagaLifecycle.associateWith("shipping", shippingId);
 
         //send the create shipping command
-        commandGateway.send(new CreateShippingCommand(shippingId, invoiceCreatedEvent.id));
+        commandGateway.send(new CreateShippingCommand(shippingId, invoiceCreatedEvent.orderId, invoiceCreatedEvent.paymentId));
+    }
+
+    @SagaEventHandler(associationProperty = "orderId")
+    public void handle(OrderShippedEvent orderShippedEvent){
+        commandGateway.send(new UpdateOrderStatusCommand(orderShippedEvent.orderId, String.valueOf(OrderStatus.SHIPPED)));
+    }
+
+    @SagaEventHandler(associationProperty = "orderId")
+    public void handle(OrderUpdatedEvent orderUpdatedEvent){
+        SagaLifecycle.end();
     }
 }

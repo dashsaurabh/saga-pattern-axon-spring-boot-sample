@@ -1,10 +1,10 @@
 package com.progressivecoder.ecommerce.events;
 
-import com.progressivecoder.ecommerce.events.BaseEvent;
-
 import java.math.BigDecimal;
 
-public class OrderCreatedEvent extends BaseEvent<String> {
+public class OrderCreatedEvent {
+
+    public final String orderId;
 
     public final String itemType;
 
@@ -14,8 +14,8 @@ public class OrderCreatedEvent extends BaseEvent<String> {
 
     public final String orderStatus;
 
-    public OrderCreatedEvent(String id, String itemType, BigDecimal price, String currency, String orderStatus) {
-        super(id);
+    public OrderCreatedEvent(String orderId, String itemType, BigDecimal price, String currency, String orderStatus) {
+        this.orderId = orderId;
         this.itemType = itemType;
         this.price = price;
         this.currency = currency;

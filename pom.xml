@@ -13,6 +13,7 @@
         <module>order-service</module>
         <module>payment-service</module>
         <module>core-apis</module>
+        <module>shipping-service</module>
     </modules>
 
 </project>

@@ -2,15 +2,15 @@ package com.progressivecoder.ecommerce.commands;
 
 import org.axonframework.modelling.command.TargetAggregateIdentifier;
 
-public class CreateInvoiceCommand{
+public class UpdateOrderStatusCommand {
 
     @TargetAggregateIdentifier
-    public final String paymentId;
-
     public final String orderId;
 
-    public CreateInvoiceCommand(String paymentId, String orderId) {
-        this.paymentId = paymentId;
+    public final String orderStatus;
+
+    public UpdateOrderStatusCommand(String orderId, String orderStatus) {
         this.orderId = orderId;
+        this.orderStatus = orderStatus;
     }
 }

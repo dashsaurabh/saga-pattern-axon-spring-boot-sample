@@ -1,11 +1,19 @@
 package com.progressivecoder.ecommerce.commands;
 
-public class CreateShippingCommand extends BaseCommand<String> {
+import org.axonframework.modelling.command.TargetAggregateIdentifier;
 
-    public final String invoiceId;
+public class CreateShippingCommand {
 
-    public CreateShippingCommand(String id, String invoiceId) {
-        super(id);
-        this.invoiceId = invoiceId;
+    @TargetAggregateIdentifier
+    public final String shippingId;
+
+    public final String orderId;
+
+    public final String paymentId;
+
+    public CreateShippingCommand(String shippingId, String orderId, String paymentId) {
+        this.shippingId = shippingId;
+        this.orderId = orderId;
+        this.paymentId = paymentId;
     }
 }
